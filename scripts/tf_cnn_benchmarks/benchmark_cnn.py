@@ -2127,7 +2127,7 @@ class BenchmarkCNN(object):
         images = tf.reshape(
             images,
             shape=[
-                self.batch_size, image_size, image_size,
+                self.batch_size // self.num_gpus, image_size, image_size,
                 self.dataset.depth
             ])
     else:
