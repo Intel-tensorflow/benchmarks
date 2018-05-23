@@ -558,7 +558,7 @@ def create_config_proto(params):
     params: Params tuple, typically created by make_params or
             make_params_from_flags.
   """
-  config = tf.ConfigProto()
+  config = tf.ConfigProto(device_count = {'NUMA':params.num_gpus})
   config.allow_soft_placement = True
   config.intra_op_parallelism_threads = params.num_intra_threads
   config.inter_op_parallelism_threads = params.num_inter_threads
